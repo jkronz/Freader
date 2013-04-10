@@ -1,7 +1,7 @@
 Freader::Application.routes.draw do
   resources :feeds
-  devise_for :users
 
+  resources :sessions
   root :to => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

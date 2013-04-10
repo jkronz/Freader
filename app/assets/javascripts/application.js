@@ -12,4 +12,8 @@
 //
 //= require libs
 
-//= require_tree .
+//= require freader.js
+
+$(function() {
+  window.Freader.app = new Freader.Application();
+});

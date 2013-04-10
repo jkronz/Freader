@@ -1,3 +1,3 @@
-class Freader
+class Freader.Application
   constructor: ->
-    console.log('app loaded')
+    loginView = new Freader.Views.Users.Login()

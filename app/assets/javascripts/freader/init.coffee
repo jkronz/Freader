@@ -3,10 +3,12 @@ unless window.console
   window.console.log = (args) =>
     #nothin
 
-Freader =
+window.templates = []
+window.Freader =
   Models: {}
   Collections: {}
   Views:
     Feeds: {}
     Articles: {}
+    Users: {}
 

@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  before_save :create_remember_token
+  attr_accessible :email, :remember_token
 
   has_many :feeds
+
+  private
+  def create_remember_token
+    self.remember_token = SecureRandom.urlsafe_base64
+  end
 end
