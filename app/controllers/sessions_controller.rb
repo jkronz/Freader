@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    sign_out @user
+    sign_out
+    render :json => {}, :status => :no_content
   end
 end

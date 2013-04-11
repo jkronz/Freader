@@ -1,7 +1,9 @@
 Freader::Application.routes.draw do
   resources :feeds
 
-  resources :sessions
+  post 'sessions', :to => 'sessions#create'
+  delete 'sessions', :to => 'sessions#destroy'
+
   root :to => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
