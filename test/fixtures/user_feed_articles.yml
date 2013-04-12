@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_feed_id: 1
+  article_id: 1
+  read: false
+  keep_unread: false
+
+two:
+  user_feed_id: 1
+  article_id: 1
+  read: false
+  keep_unread: false

@@ -1,8 +1,7 @@
 class Feed < ActiveRecord::Base
   attr_accessible :etag, :feed_url, :last_modified, :name, :url
 
-  belongs_to :user
-  has_many :articles, :dependent => :destroy
+  has_many :user_feeds, :dependent => :destroy
 
   class << self
     def create_feed(url, user)
