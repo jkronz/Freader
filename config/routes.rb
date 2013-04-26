@@ -1,4 +1,5 @@
 Freader::Application.routes.draw do
+
   resources :feeds
 
   post 'sessions', :to => 'sessions#create'

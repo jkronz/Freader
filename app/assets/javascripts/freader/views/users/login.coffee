@@ -18,11 +18,11 @@ class Freader.Views.Users.Login extends Backbone.View
 
   authComplete: =>
     @$el.html(templates['users/signed_in'](Freader.app.session.toJSON()))
+    Freader.app.initialize()
 
   signedIn: (assertion) =>
     Freader.app.session = new Freader.Models.Session
       assertion: assertion
-    console.log 'saving'
     Freader.app.session.save {},
       success: @authComplete
       error: @signOut
@@ -34,11 +34,12 @@ class Freader.Views.Users.Login extends Backbone.View
     Freader.app.session.destroy
       success: @signOutComplete
 
-  signIn: =>
+  signIn: (event) =>
     navigator.id.request()
+    event?.stopPropagation()
 
-  signOut: =>
+  signOut: (event) =>
     console.log 'signing out'
     navigator.id.logout()
-
+    event?.stopPropagation()
 

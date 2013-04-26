@@ -1,5 +1,5 @@
 class UserFeedArticle < ActiveRecord::Base
-  attr_accessible :article_id, :keep_unread, :read, :user_feed_id
+  attr_accessible :article, :keep_unread, :read, :user_feed
 
   belongs_to :user_feed
   belongs_to :article

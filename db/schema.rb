@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409231504) do
+ActiveRecord::Schema.define(:version => 20130411231851) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -37,6 +37,28 @@ ActiveRecord::Schema.define(:version => 20130409231504) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  create_table "user_feed_articles", :force => true do |t|
+    t.integer  "user_feed_id"
+    t.integer  "article_id"
+    t.boolean  "read",         :default => false
+    t.boolean  "keep_unread",  :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "user_feed_articles", ["article_id"], :name => "index_user_feed_articles_on_article_id"
+  add_index "user_feed_articles", ["user_feed_id"], :name => "index_user_feed_articles_on_user_feed_id"
+
+  create_table "user_feeds", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "feed_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_feeds", ["feed_id"], :name => "index_user_feeds_on_feed_id"
+  add_index "user_feeds", ["user_id"], :name => "index_user_feeds_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

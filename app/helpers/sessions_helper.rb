@@ -16,4 +16,12 @@ module SessionsHelper
   def current_user
     @current_user ||= User.find_by_remember_token(cookies[:remember_token])
   end
+
+  def authenticate_user!
+    if current_user.nil?
+      render :json => {}, :status => :unauthorized
+      return false
+    end
+    true
+  end
 end

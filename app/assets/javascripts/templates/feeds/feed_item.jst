@@ -1,1 +1,9 @@
-<li><a href="#"><%= name %></a></li>
+<li>
+  <a href="#">
+    <% if (unread_articles_count > 0) { %>
+      <strong><%= name %> (<%= unread_articles_count %>)</strong>
+    <% } else { %>
+      <%= name %>
+    <% } %>
+  </a>
+</li>
