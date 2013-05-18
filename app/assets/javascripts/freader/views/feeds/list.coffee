@@ -12,6 +12,9 @@ class Freader.Views.Feeds.List extends Backbone.View
   renderFeeds: =>
     @closeLineItems()
     node = document.createDocumentFragment()
+    feedView = new Freader.Views.Feeds.ListItem({model: null})
+    @lineItemViews.push(feedView)
+    node.appendChild(feedView.render().el)
     @collection.each (feed) =>
       feedView = new Freader.Views.Feeds.ListItem({model: feed})
       @lineItemViews.push(feedView)

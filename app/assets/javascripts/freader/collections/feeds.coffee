@@ -1,6 +1,8 @@
 class Freader.Collections.Feeds extends Backbone.Collection
   url: "/feeds"
 
+  model: Freader.Models.Feed
+
   pollInterval: 1000 * 60 * 10
 
   comparator: ->

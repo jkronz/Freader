@@ -14,12 +14,24 @@ class User < ActiveRecord::Base
     remote_feed.entries[0..9].each do |entry|
       article = local_feed.articles.create(title: entry.title,
                              author: entry.author,
+                             url: entry.url,
                              summary: entry.summary,
                              content: entry.content,
                              published_at: entry.published)
       user_feed.user_feed_articles.create(article: article)
     end
     user_feed
+  end
+
+  def articles(params)
+    articles_rel = user_feed_articles
+    if params[:user_feed_id].present?
+      articles_rel = articles_rel.where(:user_feed_id => params[:user_feed_id])
+    end
+    if params[:unread]
+      articles_rel = articles_rel.where('read is false or keep_unread is true')
+    end
+    articles_rel
   end
 
   private

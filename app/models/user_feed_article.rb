@@ -3,4 +3,8 @@ class UserFeedArticle < ActiveRecord::Base
 
   belongs_to :user_feed
   belongs_to :article
+
+  def as_json(options={})
+    super(options).merge(self.article.as_json())
+  end
 end
