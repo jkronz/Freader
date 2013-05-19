@@ -1,2 +1,7 @@
-<h4><a href="<%= url %>" target="_blank"><%= title %></a></h4>
-<div class="article-content"><%= content %></div>
+<div class="article-item read-<%= read %>"><h4><a href="<%= url %>" target="_blank"><%= title %></a></h4>
+  <div class="article-content"><%= content %></div>
+</div>
+<div class="article-meta">
+  <a href="#" class="star favorite-true"><i class="icon-star"></i></a>
+  <!--<a href="#" class="star favorite-<%= favorite %>"><i class="icon-star"></i></a>-->
+</div>

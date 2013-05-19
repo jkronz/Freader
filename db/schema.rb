@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513194029) do
+ActiveRecord::Schema.define(:version => 20130519122847) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130513194029) do
     t.boolean  "keep_unread",  :default => false
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.boolean  "favorite",     :default => false
   end
 
   add_index "user_feed_articles", ["article_id"], :name => "index_user_feed_articles_on_article_id"
