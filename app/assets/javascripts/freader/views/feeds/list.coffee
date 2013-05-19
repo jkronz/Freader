@@ -1,4 +1,7 @@
 class Freader.Views.Feeds.List extends Backbone.View
+  events:
+    'click .subscribe': 'newFeed'
+
   initialize: (options) =>
     @lineItemViews = []
     @collection = options.collection
@@ -20,6 +23,9 @@ class Freader.Views.Feeds.List extends Backbone.View
       @lineItemViews.push(feedView)
       node.appendChild(feedView.render().el)
     @$(".nav-list").append(node)
+
+  newFeed: =>
+
 
   closeLineItems: =>
     _.each @lineItemViews, (vw) =>

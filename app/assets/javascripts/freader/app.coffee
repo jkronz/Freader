@@ -9,5 +9,10 @@ class Freader.Application
     @articlesListView = new Freader.Views.Articles.List({collection: @articles})
     $(".sidebar-container").html(@feedsListView.render().el)
     $(".main-container").html(@articlesListView.render().el)
+    newForm = new Freader.Views.Feeds.New()
+    $(".new-feed-link").popover
+      html: true
+      content: newForm.render().el
+      placement: 'bottom'
     @feeds.load()
     @articles.fetch()

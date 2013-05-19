@@ -7,6 +7,6 @@ class Freader.Models.Feed extends Backbone.Model
 
   validate: (attrs) =>
     errors = []
-    if _.isEmpty(attrs.feed_url)
-      errors.push {field: "feed_url", message: "Feed URL cannot be blank"}
+    if _.isEmpty(attrs.url)
+      errors.push {field: "url", message: "Feed URL cannot be blank"}
     if errors.length then errors else null
