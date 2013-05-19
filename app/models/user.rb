@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
                              summary: entry.summary,
                              content: entry.content,
                              published_at: entry.published)
-      user_feed.user_feed_articles.create(article: article)
+      user_feed.user_feed_articles.create(article: article, read: false, keep_unread: false)
     end
     user_feed
   end
