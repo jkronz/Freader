@@ -6,7 +6,6 @@ class CreateArticles < ActiveRecord::Migration
       t.text :summary
       t.text :content
       t.date :published_at
-      t.boolean :read
       t.integer :feed_id, :null => false
       t.timestamps
     end

@@ -4,7 +4,7 @@ Freader::Application.routes.draw do
 
   post 'sessions', :to => 'sessions#create'
   delete 'sessions', :to => 'sessions#destroy'
-  get 'articles', :to => 'articles#index'
+  resources :articles, :only => [:index, :update]
 
   root :to => 'home#index'
   # The priority is based upon order of creation:

@@ -5,6 +5,8 @@ class UserFeedArticle < ActiveRecord::Base
   belongs_to :article
 
   def as_json(options={})
-    super(options).merge(self.article.as_json())
+    ret = super(options).merge(self.article.as_json())
+    ret[:id] = self.id
+    ret
   end
 end

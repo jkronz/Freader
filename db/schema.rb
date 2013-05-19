@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20130519122847) do
     t.text     "summary"
     t.text     "content"
     t.date     "published_at"
-    t.boolean  "read"
     t.integer  "feed_id",      :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
