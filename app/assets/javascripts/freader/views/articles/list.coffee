@@ -4,12 +4,18 @@ class Freader.Views.Articles.List extends Backbone.View
     @collection = options.collection
     @articleViews = []
     @collection.on 'add', @renderArticles
+    @collection.on 'reset', @resetArticles
 
   render: =>
     @$el.html(templates['articles/list']())
     return this
 
-  renderArticles: =>
+  renderArticle: (article) =>
+    vw = new Freader.Views.Articles.ListItem(model: article)
+    @articleViews.push(vw)
+    @$(".article-list").append(vw.render().el)
+
+  resetArticles: =>
     @closeArticles()
     node = document.createDocumentFragment()
     @collection.each (article) =>

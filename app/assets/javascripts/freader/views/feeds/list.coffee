@@ -22,10 +22,7 @@ class Freader.Views.Feeds.List extends Backbone.View
       feedView = new Freader.Views.Feeds.ListItem({model: feed})
       @lineItemViews.push(feedView)
       node.appendChild(feedView.render().el)
-    @$(".nav-list").append(node)
-
-  newFeed: =>
-
+    @$(".nav-list").html(node)
 
   closeLineItems: =>
     _.each @lineItemViews, (vw) =>

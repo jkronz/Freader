@@ -9,7 +9,7 @@ class Freader.Collections.Articles extends Backbone.Collection
 
   updateArticles: (feed) =>
     @feed = feed
-    @fetch()
+    @fetch(reset: true)
 
   url: =>
     if @feed?

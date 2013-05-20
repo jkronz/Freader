@@ -25,13 +25,15 @@ class User < ActiveRecord::Base
 
   def articles(params)
     articles_rel = user_feed_articles
+    articles_rel = articles_rel.joins(:article)
     if params[:user_feed_id].present?
       articles_rel = articles_rel.where(:user_feed_id => params[:user_feed_id])
     end
     if params[:unread]
       articles_rel = articles_rel.where('read is false or keep_unread is true')
     end
-    articles_rel
+
+    articles_rel.order('articles.published_at desc')
   end
 
   private
